@@ -18,10 +18,30 @@ class ViewController: UIViewController {
         return label
     }()
 
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "УРА!!!!"
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+
+        view.backgroundColor = .yellow
         setConstraints()
+    }
+    
+    private func setConstraints() {
+        view.addSubview(titleLabel)
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+
     }
     
     private func setConstraints() {
